@@ -16,13 +16,28 @@
 </head>
 
 <body>
+    <header class=" justify-center  items-center m-auto font-bold">
+        <h1 class="text-2xl text-center m-auto">MOBiLE SHOP</h1>
+    </header>
+    <main class="m-auto justify-center items-center">
 
-    <div id="phone-container"
-        class=" grid  grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 p-[40px] md:p-[70px] lg:p-[100px]">
+        <!-- serchbar -->
+        <div class="w-full justify-center gap-4 m-auto  grid md:flex lg:flex">
+            <input id="sechbar" type="text" placeholder="search"
+                class="input input-bordered border-black w-full max-w-xl" />
+            <button onclick="searchbarclick()" class="bg-green-200 border p-3 rounded-md">Search</button>
+        </div>
 
-    </div>
 
-    <script src="/script/app.js"></script>
+        <section class="container m-auto">
+            <div id="phone-container"
+                class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-auto m-auto justify-center items-center ">
+            </div>
+            <script src="/script/app.js"></script>
+        </section>
+
+
+    </main>
 </body>
 
 </html>
