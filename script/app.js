@@ -1,15 +1,31 @@
-
-const loadData = async (value = 'apple') => {
+let showbtn;
+const loadData = async (value = '13', ishandleAll) => {
   const res = await fetch(`https://openapi.programming-hero.com/api/phones?search=${value}`);
   const data = await res.json();
   const phones = data.data;
-  showInDisplay(phones);
+  showInDisplay(phones, ishandleAll);
   // console.log(data);
 }
 
-const showInDisplay = phones => {
+const showInDisplay = (phones, ishandleAll) => {
   const phoneContainer = document.getElementById('phone-container');
   phoneContainer.innerHTML = '';
+
+  const showmoreContainer = document.getElementById('show-more-container');
+
+  if (phones.length > 12 && !ishandleAll) {
+    showmoreContainer.classList.remove('hidden')
+  } else {
+    showmoreContainer.classList.add('hidden')
+  }
+
+  if (!ishandleAll) {
+    phones = phones.slice(0, 12); // show only 12 phones at a time
+  }
+
+
+
+
   phones.forEach(value => {
     console.log(value)
 
@@ -33,14 +49,34 @@ const showInDisplay = phones => {
     phoneContainer.appendChild(phonediv);
 
   });
+  progresstogle(false);
 
 }
 
-const searchbarclick = () => {
+const searchbarclick = (ishandleAll) => {
+  progresstogle(true);
   const serchvalue = document.getElementById('sechbar').value;
-  loadData(serchvalue)
+  loadData(serchvalue, ishandleAll)
   console.log(serchvalue);
 }
+
+
+const progresstogle = (isProgress) => {
+  const progressbar = document.getElementById('progres-bar');
+  if (isProgress) {
+    progressbar.classList.remove('hidden');
+    console.log(isProgress);
+  } else {
+    progressbar.classList.add('hidden');
+    console.log(isProgress);
+  }
+
+}
+
+const showalldata = () => {
+  searchbarclick(true)
+}
+
 
 
 loadData();

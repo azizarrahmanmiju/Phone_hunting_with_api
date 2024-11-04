@@ -22,20 +22,30 @@
     <main class="m-auto justify-center items-center">
 
         <!-- serchbar -->
-        <div class="w-full justify-center gap-4 m-auto  grid md:flex lg:flex">
+        <div class="w-full justify-center gap-4 m-auto  grid md:flex lg:flex-2">
             <input id="sechbar" type="text" placeholder="search"
                 class="input input-bordered border-black w-full max-w-xl" />
             <button onclick="searchbarclick()" class="bg-green-200 border p-3 rounded-md">Search</button>
+
+        </div>
+        <div class=" flex w-full justify-center ">
+            <span id="progres-bar" class="loading loading-spinner loading-lg mt-40 hidden"></span>
         </div>
 
 
         <section class="container m-auto">
             <div id="phone-container"
                 class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-auto m-auto justify-center items-center ">
+
+
+
             </div>
+            <div id="show-more-container" class="w-full  justify-center my-1 text-center hidden">
+                <button onclick="showalldata()" id="show-more-button" class="btn btn-accent">See More</button>
+            </div>
+
             <script src="/script/app.js"></script>
         </section>
-
 
     </main>
 </body>
